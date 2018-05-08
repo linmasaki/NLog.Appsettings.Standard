@@ -5,11 +5,13 @@ An NLog Layout Renderer be used to access appsettings.json with .NET Standard 2.
 ## How To Use ##   
 Install the [NLog.Appsetting.Standard](https://www.nuget.org/packages/NLog.Appsetting.Standard) package from NuGet. You need add NLog 4.5 or higher, then put the syntax in your NLog configuration below:
 
-    <nlog>
-        <extensions>
-            <add assembly="NLog.Appsetting.Standard" />
-        </extensions>
-    </nlog>
+```xml
+<nlog>
+    <extensions>
+        <add assembly="NLog.Appsetting.Standard" />
+    </extensions>
+</nlog>
+```
 
 ### Appsetting layout renderer configuration ###
 The layout renderer's name is ``appsetting``.   
@@ -22,13 +24,15 @@ The layout renderer's name is ``appsetting``.
 #### Example: ####
 Target appsettings.json
 
-    {
-        "Mode":"Prod",
-        "Options":{
-            "StorageConnectionString":"abcdefg123456789",
-            "Container":"YourProdContainer"
-        }
+```json
+{
+    "Mode":"Prod",
+    "Options":{
+        "StorageConnectionString":"abcdefg123456789",
+        "Container":"YourProdContainer"
     }
+}
+```
 
 * **${appsetting:name=Mode}** - Get "Prod" in this case.
 * **${appsetting:name=Options.StorageConnectionString}** - Get "abcdefg123456789" in this case.
