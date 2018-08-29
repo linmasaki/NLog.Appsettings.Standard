@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 
-namespace NLog.Appsetting.Standard.Test
+namespace NLog.Appsettings.Standard.Test
 {
     class Program
     {

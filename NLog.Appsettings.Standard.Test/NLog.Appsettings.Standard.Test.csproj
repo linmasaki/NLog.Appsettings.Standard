@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../NLog.Appsetting.Standard/NLog.Appsetting.Standard.csproj" />
+    <ProjectReference Include="../NLog.Appsettings.Standard/NLog.Appsettings.Standard.csproj" />
   </ItemGroup>
 
   <ItemGroup>

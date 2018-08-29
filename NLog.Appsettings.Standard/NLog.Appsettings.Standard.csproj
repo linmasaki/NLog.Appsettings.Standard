@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>NLog.Appsetting.Standard</AssemblyName>
-    <Title>NLog.Appsetting.Standard</Title>
-    <PackageId>NLog.Appsetting.Standard</PackageId>
+    <AssemblyName>NLog.Appsettings.Standard</AssemblyName>
+    <Title>NLog.Appsettings.Standard</Title>
+    <PackageId>NLog.Appsettings.Standard</PackageId>
     <Authors>CoCo Lin</Authors>
     <Description>An NLog Layout Renderer be used to access appsettings.json with .NET Standard 2.0</Description>
-    <PackageProjectUrl>https://github.com/linmasaki/NLog.Appsetting.Standard</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/linmasaki/NLog.Appsettings.Standard</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/linmasaki/CoCoPackageIcon/master/cocodotnet64.png</PackageIconUrl>
     <PackageTags>netcore2 netstandard2.0 NLog NLog.LayoutRenderer appsettings.json</PackageTags>
-    <Version>1.0.0</Version> 
-    <Copyright>CoCo Lin, 2018</Copyright>
+    <Version>1.0.1</Version> 
+    <Copyright>Copyright © 2018 CoCo Lin</Copyright>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NLog" Version="4.5.0" />

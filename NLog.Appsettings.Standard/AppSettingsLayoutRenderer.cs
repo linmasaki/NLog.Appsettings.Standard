@@ -5,10 +5,10 @@ using Microsoft.Extensions.Configuration;
 using NLog.Config;
 using NLog.LayoutRenderers;
 
-namespace NLog.Appsetting.Standard
+namespace NLog.Appsettings.Standard
 {
-    [LayoutRenderer("appsetting")]
-    public class AppSettingLayoutRenderer : LayoutRenderer
+    [LayoutRenderer("appsettings")]
+    public class AppSettingsLayoutRenderer : LayoutRenderer
     {
         private IConfigurationRoot _configurationRoot;
 
@@ -30,7 +30,7 @@ namespace NLog.Appsetting.Standard
 		    set => _configurationRoot = value;
 		}
 
-        public AppSettingLayoutRenderer() {
+        public AppSettingsLayoutRenderer() {
 
             Settings = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json")
@@ -57,8 +57,7 @@ namespace NLog.Appsetting.Standard
         }
 
         private bool _cachedAppSettingValue = false;
-		private string _appSettingValue = null;
-		
+		private string _appSettingValue = null;		
 		private string AppSettingValue
 		{
 			get
