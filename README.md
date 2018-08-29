@@ -19,12 +19,12 @@ Install the [NLog.Appsettings.Standard](https://www.nuget.org/packages/NLog.Apps
 ### Appsettings layout renderer configuration ###
 The layout renderer's name is ``appsettings``.   
 
-### Configuration Syntax & Parameters ###
+#### Configuration Syntax & Parameters ####
 ``${appsettings:name=String.String2.String3:default=String}``
 * **name** - Key in your appsettings.\<EnvironmentName\>.json file. If it has a multi-level hierarchy that you want to access, you can separate by a dot. Required.
 * **default** - Default value if not present. Optional.
 
-### Example: ###
+#### Example: ####
 Target appsettings.json
 
 ```json
