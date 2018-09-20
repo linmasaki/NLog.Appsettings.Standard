@@ -35,7 +35,7 @@ namespace NLog.Appsettings.Standard.Test
 
             //configure NLog
             loggerFactory.AddNLog(new NLogProviderOptions { CaptureMessageTemplates = true, CaptureMessageProperties = true });
-            loggerFactory.ConfigureNLog("nlog.config");
+            NLog.LogManager.LoadConfiguration("nlog.config");
 
             return serviceProvider;
         }

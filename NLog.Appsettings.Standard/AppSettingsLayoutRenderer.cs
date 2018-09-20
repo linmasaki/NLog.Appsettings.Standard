@@ -10,7 +10,7 @@ namespace NLog.Appsettings.Standard
     [LayoutRenderer("appsettings")]
     public class AppSettingsLayoutRenderer : LayoutRenderer
     {
-        private IConfigurationRoot _configurationRoot;
+        private static IConfigurationRoot _configurationRoot;
 
         ///<summary>
 		/// The AppSetting name.
@@ -32,11 +32,13 @@ namespace NLog.Appsettings.Standard
 
         public AppSettingsLayoutRenderer() {
 
-            Settings = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true).Build();
+            if(Settings == null)
+			{
+				Settings = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                			.AddJsonFile("appsettings.json")
+                			.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true).Build();
+			}
         }
-
 
         /// <summary>
 		/// Renders the specified application setting or default value and appends it to the specified <see cref="StringBuilder" />.

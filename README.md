@@ -1,6 +1,6 @@
 # NLog.Appsettings.Standard
 [![Version](https://img.shields.io/nuget/vpre/NLog.Appsettings.Standard.svg)](https://www.nuget.org/packages/NLog.Appsettings.Standard)  
-An NLog Layout Renderer be used to access appsettings.json with .NET Standard 2.0.   
+An NLog layout renderer be used to access appsettings.json and supported .NET Standard 1.6/2.0.   
 
 ## Attention ##  
 The older package [NLog.Appsetting.Standard](https://www.nuget.org/packages/NLog.Appsetting.Standard) is no longer updated and maintained. It is recommended to be replaced this new version.  
