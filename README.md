@@ -39,6 +39,20 @@ Target appsettings.json
 * **${appsettings:name=Options.StorageConnectionString}** - Get "abcdefg123456789" in this case.
 * **${appsettings:name=Options.StorageConnectionString2:default=DefaultString}** - Get "DefaultString" in this case.
 
+### Set Explicit Configuration ###
+In some cases, the library may not work correctly (e.g., always access incorrect appsettings.json). You can set the configuration directly by use the global property ``AppSettings`` before you start logging work as follows
+
+```C#
+using NLog.Appsettings.Standard;
+
+..........
+
+AppSettingsLayoutRenderer.AppSettings = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+                                            .AddJsonFile("appsettings.json").AddJsonFile($"appsettings.Development.json", optional: true)
+                                            .Build();
+..........
+```
+
 ## Test App ##
 NLog.Appsettings.Standard.Test is a console program that is preconfigured to use the ``appsettings`` layout renderer. It is a good sample that you can follow.  
 
