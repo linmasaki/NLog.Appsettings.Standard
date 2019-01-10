@@ -12,6 +12,17 @@ namespace NLog.Appsettings.Standard
     {
         private static IConfigurationRoot _configurationRoot;
 
+		internal IConfigurationRoot DefaultAppSettings
+		{
+			get => _configurationRoot;
+		    set => _configurationRoot = value;
+		}
+
+		/// <summary>
+        /// Global configuration. Used if it has set
+        /// </summary>
+        public static IConfiguration AppSettings { private get; set; }
+
         ///<summary>
 		/// The AppSetting name.
 		///</summary>
@@ -22,19 +33,13 @@ namespace NLog.Appsettings.Standard
 		///<summary>
 		/// The default value to render if the AppSetting value is null.
 		///</summary>
-		public string Default { get; set; }
-
-		internal IConfigurationRoot Settings
-		{
-			get => _configurationRoot;
-		    set => _configurationRoot = value;
-		}
+		public string Default { get; set; }		
 
         public AppSettingsLayoutRenderer() {
-
-            if(Settings == null)
+			
+            if(AppSettings == null && DefaultAppSettings == null)
 			{
-				Settings = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
+				DefaultAppSettings = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                 			.AddJsonFile("appsettings.json")
                 			.AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}.json", optional: true).Build();
 			}
@@ -67,11 +72,12 @@ namespace NLog.Appsettings.Standard
                 Name = Name.Replace('.',':');
 				if (_cachedAppSettingValue == false)
 				{
-					_appSettingValue = Settings[Name];
+					_appSettingValue = AppSettings == null ? DefaultAppSettings[Name] : AppSettings[Name];
 					_cachedAppSettingValue = true;
 				}
 				return _appSettingValue;
 			}
 		}
+
     }
 }
